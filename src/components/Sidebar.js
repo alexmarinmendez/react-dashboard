@@ -18,11 +18,22 @@ const Sidebar = () => {
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
               <button type="button" onClick={() => {}} className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden">
-                {/* <button type="button" onClick={() => {}} className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block sd:hidden"> */}
-                {/* <button type="button"> */}
                 <MdOutlineCancel />
               </button>
             </TooltipComponent>
+          </div>
+          <div className="mt-10">
+            {links.map((item) => (
+              <div key={item.title}>
+                <p className="text-gray-400 m-3 mt-4 uppercase">{item.title}</p>
+                {item.links.map((link) => (
+                  <NavLink to={`/${link.name}`} key={link.name} onClick={() => {}}>
+                    {link.icon}
+                    <span className="capitalize">{link.name}</span>
+                  </NavLink>
+                ))}
+              </div>
+            ))}
           </div>
         </>
       )}
